@@ -1,0 +1,38 @@
+# the name of this application, used in logs
+app_name: "python_start"
+
+#  Set the logging levels can be one of:
+#  'WARNING'
+#  'INFO'
+#  'DEBUG'
+#  'CRITICAL'
+#  'ERROR':
+logging:
+  levels:
+    file: 'DEBUG'
+    console: 'DEBUG'
+  file:
+    path: './logs/log.txt'
+    when: "d"
+    interval: 1
+    backupCount: 5
+
+# set some static vars
+database_name: lx12345.starbucks.net
+server_name: ms12345.starbucks.net
+
+# use an environment var or a default
+some_var : "{{ "default" | env_override('SOME_VAR') }}"
+
+# deeply nested settings:
+foo:
+  bar:
+    baz:
+      qux:
+        quux:
+          garply:
+            waldo:
+              fred:
+                plugh:
+                  xyzzy:
+                    thud: "{{ 7 * 6 }}" 
